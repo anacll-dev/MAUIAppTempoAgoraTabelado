@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIAppTempoAgora.MainPage">
+
+    <ScrollView>
+        <StackLayout Spacing="10" Margin="10">
+
+            <Button Text="Obter Localização" Clicked="Button_Clicked" />
+
+            <Label Text="Latitude:" />
+            <Entry x:Name="lbl_latitude" Text="37,421998333333335" />
+
+            <Label Text="Longitude:" />
+            <Entry x:Name="lbl_longitude" Text="-122,084" />
+
+            <Button Text="Obter Placemark" Clicked="Button_Clicked_1" />
+
+            <Label x:Name="lbl_reverso" Text="Dados gerais de Local" />
+
+            <Button Text="Obter Previsão do Tempo" Clicked="Button_Clicked_2" />
+
+            <Label x:Name="lbl_previsao" />
+
+
+            <ListView x:Name="list_tempos">
+
+                <ListView.Header>
+                    <Grid ColumnDefinitions="*, *, *, *, *, *, *, *, *, *">
+                        <Label Grid.Column="0" Text="Local"/>
+                        <Label Grid.Column="1" Text="Temperatura"/>
+                        <Label Grid.Column="2" Text="Vento"/>
+                        <Label Grid.Column="3" Text="Umidade"/>
+                        <Label Grid.Column="4" Text="Visibilidade"/>
+                        <Label Grid.Column="5" Text="Nascer do Sol"/>
+                        <Label Grid.Column="6" Text="Pôr do Sol"/>
+                        <Label Grid.Column="7" Text="Clima"/>
+                        <Label Grid.Column="8" Text="Descrição Clima"/>
+                        <Label Grid.Column="9" Text="Data"/>
+
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid RowDefinitions="Auto"
+                          ColumnDefinitions="3*, 3*, 3*, 3*, 3*, 3*, 3*, 3*, 3*, 3*">
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Title}"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Temperature}"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Wind}"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Humidity}"/>
+                                <Label Grid.Row="0" Grid.Column="4" Text="{Binding Visibility}"/>
+                                <Label Grid.Row="0" Grid.Column="5" Text="{Binding Sunrise}"/>
+                                <Label Grid.Row="0" Grid.Column="6" Text="{Binding Sunset}"/>
+                                <Label Grid.Row="0" Grid.Column="7" Text="{Binding Weather}"/>
+                                <Label Grid.Row="0" Grid.Column="8" Text="{Binding WeatherDescription}"/>
+                                <Label Grid.Row="0" Grid.Column="9" Text="{Binding Created}"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+
+        
+    </ScrollView>
+
+</ContentPage>
